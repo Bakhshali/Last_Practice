@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/assets/scss/css/style.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav id="topbar">
+            <div class="container">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-lg-2">
+                        <div class="logo mt-3">
+                            <h2>@layoutservice.GetDatas().Result.FirstOrDefault(l=>l.Key=="logo").Value</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="menu mt-4">
+                            <ul class="d-flex justify-content-end justify-content-evenly">
+                                <li style="color:rgb(217,35,45) ;">Home</li>
+                                <li>About<i class="fa-solid fa-angle-down"></i></li>
+                                <li>Services</li>
+                                <li>Portfolio</li>
+                                <li>Pricing</li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+
+                                      
+                                    </ul>
+                                </li>   
+                                  @if (User.Identity.IsAuthenticated)
+                                        {
+
+                                            <li><a>@User.Identity.Name</a></li>
+                                            <li><a asp-controller="account" asp-action="logout">Logout</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li><a asp-controller="account" asp-action="login">Login</a></li>
+                                            <li><a asp-controller="account" asp-action="register">Register</a></li>
+                                        }
+
+                            </ul>
+                        </div>
+
+                        <!-- #Responsive menu-navbar start -->
+                        <nav class="navbar fixed-top mt-2">
+                            <div class="container-fluid">
+                                <a class="navbar-brand" href="#"></a>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                                    <i class="fa-solid fa-bars"></i>
+                                </button>
+                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                                    <div class="offcanvas-header">
+                                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link</a>
+                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Dropdown
+                                                </a>
+                                                <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                    <li>
+                                                        <hr class="dropdown-divider">
+                                                    </li>
+                                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <form class="d-flex" role="search">
+                                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                            <button class="btn btn-outline-success" type="submit">Search</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+
+                        <!-- #Responsive menu-navbar end -->
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    @RenderBody()
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="~/assets/js/script.js"></script>
+</body>
+</html>

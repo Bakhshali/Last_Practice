@@ -1,0 +1,64 @@
+﻿@model RegisterVM
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+    <div asp-validation-summary="ModelOnly"  class="alert alert-danger"></div>
+<form method="post">
+  <!-- 2 column grid layout with text inputs for the first and last names -->
+  <div class="row mb-4">
+    <div class="col">
+      <div class="form-outline">
+        <input asp-for="Name" id="form3Example1" class="form-control" placeholder="Name" /> <br/>
+         <span asp-validation-for="Name" class="text-danger"></span>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-outline">
+        <input asp-for="Surname" id="form3Example1" class="form-control" placeholder="Surname" /> <br/>
+         <span asp-validation-for="Surname" class="text-danger"></span>
+      </div>
+    </div>
+      <div class="col">
+      <div class="form-outline">
+        <input asp-for="Username" id="form3Example1" class="form-control" placeholder="Username" /> <br/>
+         <span asp-validation-for="Username" class="text-danger"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+     <div class="col">
+        <input asp-for="Email" id="form3Example1" class="form-control" placeholder="EmailAddress" /> <br/>
+         <span asp-validation-for="Email" class="text-danger"></span>
+      </div>    
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline mb-4">
+    <input asp-for="Password" id="form3Example1" class="form-control" placeholder="Password" /> <br/>
+         <span asp-validation-for="Password" class="text-danger"></span>
+  </div>
+    <div class="form-outline mb-4">
+    <input asp-for="RepeatPassword" id="form3Example1" class="form-control" placeholder="Confirm Password" /> <br/>
+         <span asp-validation-for="RepeatPassword" class="text-danger"></span>
+  </div>
+
+  <!-- Checkbox -->
+  <div class="form-check d-flex justify-content-center mb-4">
+    <input asp-for="Condition" id="form2Example33"  />
+    <label class="form-check-label" for="form2Example33">
+      Subscribe to our newsletter
+    </label>
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+
+  <!-- Register buttons -->
+
+</form>
+
+

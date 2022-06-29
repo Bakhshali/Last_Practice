@@ -1,0 +1,48 @@
+﻿@model List<Slider>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="table-responsive">
+    <a asp-controller="Slider" asp-action="create" class="btn btn-success">Create Slider</a>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Image</th>
+      <th scope="col">Title</th>
+      <th scope="col">Subtitle</th>
+      <th scope="col">Detail</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+   @foreach (Slider slider in Model)
+  {
+      <tr>
+          <td><img style="width:400px;height:200px" src="~/assets/img/slider/@slider.Image"></td>
+          <td>@slider.Title</td>
+
+                    <td>@if (slider.Subtitle.Length >= 30)
+                        {
+                            @(slider.Subtitle.Substring(0,30).ToString() + "...")
+                        }
+                        else
+                        {
+                            @slider.Subtitle
+                        }
+
+          </td>
+          <td ><a asp-controller="Slider" asp-action="detail" asp-route-id="@slider.Id"><i style="font-size:40px;color:orange;" class="fa-solid fa-circle-info"></i></a></td>
+          <td><a asp-controller="Slider" asp-action="edit" asp-route-id="@slider.Id"><i style="font-size:40px;color:green;" class="fa-regular fa-pen-to-square"></i></a></td>
+          <td><a asp-controller="Slider" asp-action="delete" asp-route-id="@slider.Id"><i style="font-size:40px;color:red;" class="fa-regular fa-trash-can"></i></a></td>
+      </tr>
+  }
+ 
+  </tbody>
+</table>
+</div>
+

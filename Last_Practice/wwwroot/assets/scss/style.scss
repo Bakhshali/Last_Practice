@@ -1,0 +1,94 @@
+header{
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: white;
+
+    
+    .container{
+        .row{
+            ul{
+                li{
+                    list-style: none;
+                    color: rgb(85,103,135);
+                    transition: .2s;
+                    font-weight: bold;
+                    cursor: pointer;
+                    &:hover{
+                        color: rgb(217,35,45);
+                    }
+                    a{
+                        text-decoration: none;
+                        color: rgb(85,103,135);
+                        transition: .3s;
+                        &:hover{
+                            color: rgb(217,35,45);
+                        }
+                    }
+                }
+            }
+            .logo{
+                h2{
+                    color: #556270;
+                }
+            }
+        }
+    }
+}
+
+main{
+    #slider{
+        .carousel-indicators{
+            button{
+                
+                .active{
+                    
+                    background-color: red !important;
+                }
+            }
+        }
+        .carousel-item{
+            position: relative;
+
+            .carousel-caption{
+                position: absolute;
+                top: 30%;
+
+                h5{
+                    font-size: 50px;
+                }
+
+                p{
+                    font-size: 17px;
+                }
+            }
+        }
+
+        img{
+            
+          height: 90vh;
+        }
+        
+    }
+}
+
+@media only screen and (max-width: 992px) {
+   header{
+    #topbar{
+        .menu{
+            display: none;
+        }
+    }
+   }
+  }
+
+  
+@media only screen and (min-width: 992px ) {
+    header{
+     #topbar{
+         .navbar{
+            display: none;
+         }
+     }
+    }
+   }

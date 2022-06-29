@@ -1,0 +1,39 @@
+﻿@model LoginVM
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+<form method="post">
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input asp-for="Username" id="form1Example1" class="form-control" placeholder="" /> <br/>
+    <span asp-validation-for="Username" class="text-danger"></span>
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline mb-4">
+    <input asp-for="Password" id="form1Example2" class="form-control" /><br/>
+    <span asp-validation-for="Password" class="text-danger"></span>
+  </div>
+
+  <!-- 2 column grid layout for inline styling -->
+  <div class="row mb-4">
+    <div class="col d-flex justify-content-center">
+      <!-- Checkbox -->
+      <div class="form-check">
+        <input asp-for="RememberMe" class="form-check-input"  id="form1Example3" />
+        <label  class="form-check-label" for="form1Example3"> Remember me </label>
+      </div>
+    </div>
+
+    <div class="col">
+      <!-- Simple link -->
+      <a href="#!">Forgot password?</a>
+    </div>
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+</form>
+
